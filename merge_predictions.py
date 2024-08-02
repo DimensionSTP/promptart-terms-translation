@@ -36,7 +36,7 @@ def merge_predictions(
             generation_dfs.append(per_device_generation_df)
 
     generation_df = pd.read_csv(
-        f"{config.connected_dir}/data/{config.submission_file_name}.csv"
+        f"{config.connected_dir}/data/{config.date}/{config.submission_file_name}.csv"
     )
     combined_generation_df = pd.concat(generation_dfs)
     sorted_generation_df = combined_generation_df.sort_values(by="index").reset_index()
