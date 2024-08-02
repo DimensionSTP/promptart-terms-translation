@@ -1,13 +1,10 @@
 from typing import Dict, Any
 import os
 
-import numpy as np
 import pandas as pd
 
 import torch
 from torch import optim, nn
-
-from einops import repeat
 
 from lightning.pytorch import LightningModule
 
@@ -236,6 +233,7 @@ class HuggingFaceArchitecture(LightningModule):
             target_max_length=self.target_max_length,
             target_min_length=self.target_min_length,
         )
+        generation = output.sequences
         if self.is_causal:
             input_length = len(encoded["input_ids"][0])
             generation = generation[:, input_length:]
@@ -282,4 +280,4 @@ class HuggingFaceArchitecture(LightningModule):
         pass
 
     def on_test_epoch_end(self) -> None:
-        self.test_metrics.reset()
+        pass
