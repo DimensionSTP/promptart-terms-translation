@@ -100,7 +100,8 @@ per_device_save_path: ${connected_dir}/sharded_results/${save_detail}-epoch=${ep
 submission_name: ${save_detail}-epoch=${epoch}
 
 user_name: ${oc.env:USER_NAME}
-upload_tag: terms-translation-En-Ko
+model_detail: Llama-3-KoEn-8B
+upload_tag: terms-translation-English-Korean
 num_safetensors: 10
 
 run_name: ${project_name}
