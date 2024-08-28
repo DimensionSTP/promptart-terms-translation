@@ -52,6 +52,8 @@ class PrompTartTranslationsDataset(Dataset):
             self.data_encoder.pad_token_id = self.data_encoder.eos_token_id
         if left_padding:
             self.data_encoder.padding_side = "left"
+        else:
+            self.data_encoder.padding_side = "right"
         dataset = self.get_dataset()
         self.instructions = dataset["instructions"]
         self.datas = dataset["datas"]
@@ -181,21 +183,11 @@ class PrompTartTranslationsDataset(Dataset):
         label: str,
     ) -> str:
         if self.split == "predict":
-            prompt = f"""### Instruction:
-{instruction.strip()} 
-
-### Input:
-{data.strip()}
-
-### Response:
-""".strip()
+            prompt = f"""Translate input sentence to Korean
+### Input: {data}
+### Translated: """
         else:
-            prompt = f"""### Instruction:
-{instruction.strip()} 
-
-### Input:
-{data.strip()}
-
-### Response:
-{label} """.strip()
+            prompt = f"""Translate input sentence to Korean
+### Input: {data}
+### Translated: {label}"""
         return prompt
