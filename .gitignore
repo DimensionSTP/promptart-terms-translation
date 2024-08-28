@@ -22,3 +22,5 @@ baseline/
 tmp*
 !requirements.txt
 !packages.txt
+wandb/
+*.log
