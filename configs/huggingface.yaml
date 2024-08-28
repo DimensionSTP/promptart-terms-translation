@@ -20,7 +20,7 @@ split:
   test: test
   predict: predict
 
-batch_size: 32
+batch_size: 4
 
 is_causal: True
 is_preprocessed: False
@@ -37,7 +37,7 @@ left_padding: False
 merged_model_path: ${connected_dir}/data/${date}/merged_model/${pretrained_model_name}
 data_max_length: 256
 target_max_length: 256
-target_min_length: 64
+target_min_length: 16
 
 quantization_type: origin
 quantization_config:
@@ -55,14 +55,13 @@ peft_config:
   task_type: CAUSAL_LM
   inference_mode: False
 
-lr: 0.00001
-weight_decay: 0.01
-warmup_rate: 0.05
-eta_min_rate: 0.01
+lr: 3e-5
+weight_decay: 1e-1
+warmup_ratio: 3e-2
+eta_min_ratio: 1e-2
 options:
   return_dict_in_generate: True
   output_scores: True
-  no_repeat_ngram_size: 2
 
 monitor: val_loss
 tracking_direction: min
