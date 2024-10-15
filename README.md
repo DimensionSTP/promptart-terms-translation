@@ -13,7 +13,7 @@ git clone https://github.com/DimensionSTP/promptart-terms-translation.git
 cd promptart-terms-translation
 
 # [OPTIONAL] create conda environment
-conda create -n myenv python=3.8
+conda create -n myenv python=3.10 -y
 conda activate myenv
 
 # install requirements
