@@ -55,10 +55,10 @@ peft_config:
   task_type: CAUSAL_LM
   inference_mode: False
 
-lr: 3e-5
+lr: 3e-6
 weight_decay: 1e-1
-warmup_ratio: 3e-2
-eta_min_ratio: 1e-2
+warmup_ratio: 5e-2
+eta_min_ratio: 1e-3
 options:
   return_dict_in_generate: True
   output_scores: True
@@ -76,7 +76,7 @@ precision: bf16
 accumulate_grad_batches: 1
 gradient_clip_val: 1
 gradient_clip_algorithm: norm
-epoch: 5
+epoch: 4
 
 model_name: HuggingFace
 dataset_name: PrompTartTranslations
