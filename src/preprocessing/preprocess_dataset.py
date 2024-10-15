@@ -32,13 +32,13 @@ def preprocess_dataset(
         data: str,
     ) -> str:
         prompt = f"""### Instruction:
-{instruction.strip()}
+{instruction}
 
 ### Input:
-{data.strip()}
+{data}
 
 ### Response:
-""".strip()
+"""
         return prompt
 
     df["prompt"] = df.apply(
