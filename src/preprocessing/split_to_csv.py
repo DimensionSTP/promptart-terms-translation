@@ -37,11 +37,10 @@ Translate the following content from English to Korean, ensuring that the terms 
 """
         return instruction
 
-    if not os.path.exists(f"{config.connected_dir}/data/{config.date}"):
-        os.makedirs(
-            f"{config.connected_dir}/data/{config.date}",
-            exist_ok=True,
-        )
+    os.makedirs(
+        f"{config.connected_dir}/data/{config.date}",
+        exist_ok=True,
+    )
 
     for split in ["train", "valid", "test"]:
         df = pd.DataFrame(dataset[split])

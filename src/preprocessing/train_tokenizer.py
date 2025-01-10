@@ -19,11 +19,10 @@ from omegaconf import DictConfig
 def train_tokenizer(
     config: DictConfig,
 ) -> None:
-    if not os.path.exists(f"{config.connected_dir}/data/{config.date}/sentencepiece"):
-        os.makedirs(
-            f"{config.connected_dir}/data/{config.date}/sentencepiece",
-            exist_ok=True,
-        )
+    os.makedirs(
+        f"{config.connected_dir}/data/{config.date}/sentencepiece",
+        exist_ok=True,
+    )
 
     spm.SentencePieceTrainer.train(
         input=f"{config.connected_dir}/data/{config.date}/corpus/corpus.txt",
